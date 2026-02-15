@@ -1,0 +1,16 @@
+You should create skillswap file on your desktop and add files correspondingly
+
+SkillSwap/
+│
+├── app.py               # Main Flask application
+├── skillswap.db         # SQLite database (auto-created)
+├── templates/           # HTML templates
+│   ├── index.html
+│   ├── dashboard.html
+│   ├── profile.html
+│   ├── matching.html
+│   ├── requests.html
+│   └── chatlist.html
+├── static/              # CSS and images
+│   └── style.css
+└── README.md            # Project README
