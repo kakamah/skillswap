@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matching</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin:0;
+            font-family:"Segoe UI",sans-serif;
+            background: rgb(78,64,125);
+            color:white;
+        }
+
+        .app {
+            max-width:420px;
+            margin:auto;
+            padding:20px;
+            padding-bottom:90px;
+        }
+
+        h2 {
+            margin-top:10px;
+            margin-bottom:25px;
+        }
+
+        .card {
+            background: rgb(60,50,110);
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:12px;
+        }
+
+        button {
+            background: rgb(100,85,160);
+            color:white;
+            border:none;
+            padding:8px 16px;
+            border-radius:8px;
+            font-weight:600;
+            margin-right:10px;
+            cursor:pointer;
+        }
+
+        button:hover {
+            background: rgb(120,100,180);
+        }
+
+        button[disabled] {
+            background:#555;
+            cursor:not-allowed;
+        }
+
+        .navbar a {
+            text-decoration:none;
+            font-size:24px;
+            color:white;
+        }
+
+        .navbar a.active {
+            color: rgb(100,85,160);
+        }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="/dashboard" class="{% if active_page=='dashboard' %}active{% endif %}">Home</a>
+        <a href="/profile" class="{% if active_page=='profile' %}active{% endif %}">Profile</a>
+        <a href="/matching" class="{% if active_page=='matching' %}active{% endif %}">Matches</a>
+        <a href="/requests" class="{% if active_page=='requests' %}active{% endif %}">Requests</a>
+        <a href="/chatlist" class="{% if active_page=='chatlist' %}active{% endif %}">Chats</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="content">
+        <h2>Incoming Requests</h2>
+
+        {% if requests %}
+            {% for r in requests %}
+                <div class="card">
+                    <p><strong>{{ r[1] }}</strong> wants to learn <strong>{{ r[2] }}</strong></p>
+                    <p>Status: {{ r[3] }}</p>
+                    {% if r[3] == 'pending' %}
+                        <a href="/accept/{{ r[0] }}"><button>Accept</button></a>
+                    {% endif %}
+                    <a href="/chatlist"><button>Chat</button></a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No requests yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
