@@ -1,1 +1,92 @@
+/* General body style */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: rgb(78,64,125); /* your requested color */
+    color: white; /* all text white */
+}
 
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: rgb(60,50,100);
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+}
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    color: white; /* sidebar text white */
+    font-weight: 600;
+    transition: 0.3s;
+}
+.sidebar a:hover {
+    background: rgb(100,90,150);
+}
+.sidebar a.active {
+    background: rgb(150,130,200);
+    color: white;
+}
+
+/* Content area */
+.content {
+    flex: 1;
+    padding: 40px;
+    margin-left: 220px; /* shifted right to leave room for sidebar */
+    color: white; /* all text white */
+}
+
+/* Cards */
+.card {
+    background: rgb(60,50,100);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    max-width: 600px;
+    color: white; /* card text white */
+}
+
+/* Headings and paragraphs */
+h1, h2, h3, p, li, button, span {
+    color: white !important; /* force all text white */
+}
+
+/* Buttons */
+button {
+    background: rgb(120,100,200);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 600;
+}
+button:hover {
+    background: rgb(150,130,220);
+}
+
+/* Inputs */
+input, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid white;
+    background: rgb(100,90,150);
+    color: white;
+}
+
+/* Empty state messages */
+.no-results, .empty-message {
+    color: white; /* even when "No matches found" or similar */
+}
+
+/* Homepage slogan */
+.home-slogan {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 20px 0;
+    color: white;
+}
