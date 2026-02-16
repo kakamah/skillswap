@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            margin:0;
+            font-family:"Segoe UI",sans-serif;
+            background: rgb(78,64,125); /* navy-purple background */
+            color:white;
+        }
+        .layout {
+            display:flex;
+            min-height:100vh;
+        }
+        /* Sidebar fixed on left */
+        .sidebar {
+            width:220px;
+            background: rgb(60,50,110); /* darker sidebar purple */
+            padding-top:30px;
+            display:flex;
+            flex-direction:column;
+            position:fixed;
+            height:100vh;
+            left:0;
+        }
+        .sidebar a {
+            padding:15px 25px;
+            text-decoration:none;
+            color:white;
+            font-weight:600;
+            transition:0.3s;
+        }
+        .sidebar a:hover {
+            background: rgb(90,75,140); /* lighter hover purple */
+        }
+        .sidebar a.active {
+            background: rgb(100,85,160); /* active button purple */
+            color:white;
+        }
+        /* Content area shifted to the right */
+        .content {
+            flex:1;
+            padding:40px;
+            margin-left:260px; /* shifted more to the right */
+        }
+        h2,h3,p {
+            color:white;
+            margin:0 0 10px 0;
+        }
+        .profile-header {
+            display:flex;
+            align-items:center;
+            margin-bottom:20px;
+        }
+        .profile-header img {
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            margin-right:20px;
+            border:2px solid rgb(100,85,160); /* active color border */
+        }
+        .card {
+            background: rgb(60,50,110); /* card background darker purple */
+            padding:15px;
+            margin-bottom:15px;
+            border-radius:12px;
+            max-width:600px;
+        }
+        .card h3 {
+            margin-bottom:10px;
+        }
+        .card p {
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/dashboard" class="{% if active_page=='dashboard' %}active{% endif %}">Home</a>
+        <a href="/profile" class="{% if active_page=='profile' %}active{% endif %}">Profile</a>
+        <a href="/matching" class="{% if active_page=='matching' %}active{% endif %}">Matches</a>
+        <a href="/requests" class="{% if active_page=='requests' %}active{% endif %}">Requests</a>
+        <a href="/chatlist" class="{% if active_page=='chatlist' %}active{% endif %}">Chats</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="profile-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Default Profile">
+            <div>
+                <h2>{{ user[1] }}</h2>
+                <p><strong>Email:</strong> {{ user[2] }}</p>
+                <p><strong>Grade:</strong> {{ user[4] }}</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Skills You Teach</h3>
+            {% for skill in user[5].split(',') %}
+                {% if skill.strip() %}
+                    <p>• {{ skill.strip() }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="card">
+            <h3>Skills You Want to Learn</h3>
+            {% for skill in user[6].split(',') %}
+                {% if skill.strip() %}
+                    <p>• {{ skill.strip() }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

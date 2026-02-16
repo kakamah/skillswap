@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matching</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            margin:0;
+            font-family:"Segoe UI",sans-serif;
+            background: rgb(78,64,125);
+            color:white;
+        }
+        .layout {
+            display:flex;
+            min-height:100vh;
+        }
+        .sidebar {
+            width:220px;
+            background: rgb(60,50,110);
+            padding-top:30px;
+            display:flex;
+            flex-direction:column;
+            position:fixed;
+            height:100vh;
+            left:0;
+        }
+        .sidebar a {
+            padding:15px 25px;
+            text-decoration:none;
+            color:white;
+            font-weight:600;
+            transition:0.3s;
+        }
+        .sidebar a:hover {
+            background: rgb(90,75,140);
+        }
+        .sidebar a.active {
+            background: rgb(100,85,160);
+            color:white;
+        }
+        .content {
+            flex:1;
+            padding:40px;
+            margin-left:220px;
+        }
+        .card {
+            background: rgb(60,50,110);
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:12px;
+        }
+        button {
+            background: rgb(100,85,160);
+            color:white;
+            border:none;
+            padding:8px 16px;
+            border-radius:8px;
+            font-weight:600;
+            margin-right:10px;
+            cursor:pointer;
+        }
+        button:hover {
+            background: rgb(120,100,180);
+        }
+        button[disabled] {
+            background: #555;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="/dashboard" class="{% if active_page=='dashboard' %}active{% endif %}">Home</a>
+        <a href="/profile" class="{% if active_page=='profile' %}active{% endif %}">Profile</a>
+        <a href="/matching" class="{% if active_page=='matching' %}active{% endif %}">Matches</a>
+        <a href="/requests" class="{% if active_page=='requests' %}active{% endif %}">Requests</a>
+        <a href="/chatlist" class="{% if active_page=='chatlist' %}active{% endif %}">Chats</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="content">
+        <h2>Matching Users</h2>
+
+        {% if matches %}
+            {% for match in matches %}
+                <div class="card">
+                    <h3>{{ match.name }}</h3>
+                    <p>Can teach: <strong>{{ match.skill }}</strong></p>
+
+                    {% if not match.requested %}
+                        <a href="/send_request/{{ match.id }}/{{ match.skill }}">
+                            <button>Send Request</button>
+                        </a>
+                    {% else %}
+                        <button disabled>Requested</button>
+                    {% endif %}
+
+                    <!-- Chat button sends user to chatlist with selected user -->
+                    <a href="/chatlist/{{ match.id }}">
+                        <button>Chat</button>
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No matches found. Try adding more skills you want to learn.</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>

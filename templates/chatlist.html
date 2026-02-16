@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SkillSwap Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            margin:0;
+            font-family:"Segoe UI",sans-serif;
+            background: rgb(78,64,125);
+            color:white;
+        }
+
+        .layout {
+            display:flex;
+            min-height:100vh;
+        }
+
+        /* MAIN SIDEBAR */
+        .sidebar {
+            width:220px;
+            background: rgb(60,50,110);
+            padding-top:30px;
+            display:flex;
+            flex-direction:column;
+        }
+        .sidebar a {
+            padding:15px 25px;
+            text-decoration:none;
+            color:white;
+            font-weight:600;
+            transition:0.3s;
+        }
+        .sidebar a:hover {
+            background: rgb(80,70,140);
+        }
+        .sidebar a.active {
+            background: rgb(100,85,160);
+            color:white;
+        }
+
+        /* CHAT WRAPPER: CHATLIST + CHAT BOX */
+        .chat-wrapper {
+            display:flex;
+            flex:1;
+            margin-left:220px; /* shift right to main sidebar */
+        }
+
+        /* CHATLIST SIDEBAR (list of users you've chatted with) */
+        .chatlist-sidebar {
+            width:200px;
+            border-right:1px solid #555;
+            padding:10px;
+            overflow-y:auto;
+            background: rgb(50,40,100);
+        }
+        .chatlist-sidebar h4 {
+            margin-top:0;
+            margin-bottom:10px;
+        }
+        .chatlist-sidebar a {
+            display:block;
+            padding:10px;
+            margin-bottom:5px;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+        .chatlist-sidebar a.active {
+            background: rgb(100,85,160);
+            color:white;
+        }
+
+        /* CHAT BOX */
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background: #1a1a1a; /* dark grey/black */
+            border-radius: 8px;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #555;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #111; /* slightly darker than chat box */
+            border-radius: 5px;
+        }
+        .message-you {
+            text-align:right;
+            margin-bottom:5px;
+        }
+        .message-other {
+            text-align:left;
+            margin-bottom:5px;
+        }
+        .messages b { color: rgb(100,85,160); }
+
+        .send-form input[type="text"] {
+            width:80%;
+            padding:8px;
+            border-radius:5px;
+            border:none;
+            margin-right:5px;
+        }
+        .send-form button {
+            padding:8px 12px;
+            border-radius:5px;
+            border:none;
+            background: rgb(100,85,160);
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+    <!-- MAIN SIDEBAR -->
+    <div class="sidebar">
+        <a href="/dashboard" class="{% if active_page=='dashboard' %}active{% endif %}">Home</a>
+        <a href="/profile" class="{% if active_page=='profile' %}active{% endif %}">Profile</a>
+        <a href="/matching" class="{% if active_page=='matching' %}active{% endif %}">Matches</a>
+        <a href="/requests" class="{% if active_page=='requests' %}active{% endif %}">Requests</a>
+        <a href="/chatlist" class="{% if active_page=='chatlist' %}active{% endif %}">Chats</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <!-- CHAT WRAPPER -->
+    <div class="chat-wrapper">
+        <!-- CHATLIST SIDEBAR -->
+        <div class="chatlist-sidebar">
+            <h4>Your Chats</h4>
+            {% for chat_user in chats %}
+                <a href="/chatlist/{{ chat_user.id }}" class="{% if other and other.id==chat_user.id %}active{% endif %}">
+                    {{ chat_user.name }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <!-- CHAT BOX -->
+        <div class="chat-box">
+            {% if other %}
+                <h3>Chat with {{ other.name }}</h3>
+                <div class="messages">
+                    {% for msg in messages %}
+                        {% if msg.sender_id == current %}
+                            <div class="message-you"><b>You:</b> {{ msg.content }}</div>
+                        {% else %}
+                            <div class="message-other"><b>{{ msg.name }}:</b> {{ msg.content }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <form method="POST" class="send-form">
+                    <input type="text" name="message" placeholder="Type a message..." required>
+                    <button type="submit">Send</button>
+                </form>
+            {% else %}
+                <p>Select a user from the left to start chatting.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
