@@ -1,0 +1,1064 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+
+\tcbuselibrary{listings,skins,breakable}
+
+% -------------------------
+% Corporate palette
+% -------------------------
+\definecolor{PrimaryNavy}{HTML}{0B1F3A}
+\definecolor{AccentBlue}{HTML}{1E5AA6}
+\definecolor{BodyGray}{HTML}{2F3640}
+\definecolor{MutedGray}{HTML}{6B7280}
+\definecolor{SoftBlue}{HTML}{EEF4FF}
+\definecolor{CodeBg}{HTML}{F6F8FA}
+\definecolor{CodeFrame}{HTML}{D9DEE8}
+\definecolor{CodeKeyword}{HTML}{0B5394}
+\definecolor{CodeString}{HTML}{38761D}
+\definecolor{CodeComment}{HTML}{7A7A7A}
+\definecolor{CodeNumber}{HTML}{AA3731}
+
+% -------------------------
+% Global style
+% -------------------------
+\setstretch{1.18}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+\AtBeginDocument{\color{BodyGray}}
+
+\titleformat{\section}
+  {\Large\bfseries\color{PrimaryNavy}}
+  {\thesection}{0.7em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{AccentBlue}}
+  {\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{PrimaryNavy}}
+  {\thesubsubsection}{0.7em}{}
+
+\titlespacing*{\section}{0pt}{2.0ex plus 0.3ex}{1.1ex}
+\titlespacing*{\subsection}{0pt}{1.6ex plus 0.3ex}{0.7ex}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=AccentBlue,
+  urlcolor=AccentBlue,
+  citecolor=AccentBlue,
+  pdfborder={0 0 0},
+  pdftitle={Enterprise Architecture Blueprint},
+  pdfauthor={Architecture Whitepaper}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{MutedGray}{Enterprise Architecture Blueprint}}
+\fancyhead[R]{\textcolor{MutedGray}{\thepage}}
+\renewcommand{\headrulewidth}{0.2pt}
+
+% -------------------------
+% Listings and boxes
+% -------------------------
+\lstdefinestyle{enterprise}{
+  backgroundcolor=\color{CodeBg},
+  basicstyle=\ttfamily\small\color{BodyGray},
+  keywordstyle=\color{CodeKeyword}\bfseries,
+  stringstyle=\color{CodeString},
+  commentstyle=\color{CodeComment}\itshape,
+  numberstyle=\scriptsize\color{MutedGray},
+  numbers=left,
+  numbersep=8pt,
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2,
+  frame=none,
+  keepspaces=true
+}
+
+\newtcblisting{codeblock}[2][]{
+  enhanced,
+  breakable,
+  colback=CodeBg,
+  colframe=CodeFrame,
+  boxrule=0.6pt,
+  arc=2.8mm,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm,
+  title={#2},
+  fonttitle=\bfseries\color{PrimaryNavy},
+  listing only,
+  listing options={style=enterprise,#1}
+}
+
+\newtcolorbox{conceptbox}{
+  enhanced,
+  breakable,
+  colback=SoftBlue,
+  colframe=AccentBlue!55,
+  boxrule=0.7pt,
+  arc=3mm,
+  left=2.2mm,
+  right=2.2mm,
+  top=1.5mm,
+  bottom=1.5mm
+}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{2.8cm}
+
+  {\Huge\bfseries\color{PrimaryNavy} Enterprise Architecture Blueprint\par}
+  \vspace{0.55cm}
+  {\Large\color{AccentBlue} Beginner-Friendly + Production-Grade\par}
+  \vspace{0.2cm}
+  {\Large\color{AccentBlue} Preventive Audit Platform Whitepaper\par}
+
+  \vspace{1.2cm}
+  {\color{MutedGray}\rule{0.78\textwidth}{0.6pt}\par}
+
+  \vfill
+  {\large\color{BodyGray}Whitepaper Edition\par}
+  \vspace{0.35cm}
+  {\large\color{BodyGray}\today\par}
+
+  \vspace*{1.5cm}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Phase 1: The Bird's-Eye View (System Overview for Dummies)}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+Public procurement data is large, noisy, and constantly changing. If analysis only uses a current snapshot, high-risk behavioral signals are often missed, for example:
+\begin{itemize}[leftmargin=1.4em]
+  \item Founders changing immediately before a tender;
+  \item ``Fake competition'' among related suppliers;
+  \item Abnormal rejection patterns or suspicious pricing dynamics;
+  \item Technical specifications that appear crafted for one vendor.
+\end{itemize}
+
+The platform is designed as a preventive audit system that:
+\begin{itemize}[leftmargin=1.4em]
+  \item Collects source data (API first, scraping fallback),
+  \item Stores immutable raw evidence,
+  \item Cleans and links entities (companies, people, addresses),
+  \item Runs explicit and explainable risk rules (no black-box ML),
+  \item Generates legal-safe outputs (PDF dossier + DOCX complaint draft).
+\end{itemize}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{High-level data flow:}
+\begin{quote}
+eGov/Goszakup/KGD sources $\rightarrow$ Ingestion $\rightarrow$ Raw storage $\rightarrow$ Validation $\rightarrow$ Core canonical data $\rightarrow$ Outbox events $\rightarrow$ Risk engine $\rightarrow$ Alerts $\rightarrow$ Legal dossier + complaint draft
+\end{quote}
+
+\textbf{Layered architecture:}
+\begin{itemize}[leftmargin=1.4em]
+  \item \textbf{Collection plane:} API clients + browser automation for dynamic pages.
+  \item \textbf{Ingestion plane:} immutable write path for raw JSON/PDF metadata.
+  \item \textbf{Normalization plane:} validation and idempotent upserts of canonical entities.
+  \item \textbf{Event plane:} outbox + change queue.
+  \item \textbf{Analytics plane:} rule engine + graph analysis + geospatial analysis.
+  \item \textbf{Presentation plane:} API and legal document generation.
+\end{itemize}
+
+\textbf{Core principles:}
+\begin{itemize}[leftmargin=1.4em]
+  \item API-first, scraping as fallback,
+  \item Raw data as immutable evidence,
+  \item No business logic in database triggers,
+  \item Idempotent pipeline with safe retries,
+  \item OLTP and OLAP separation,
+  \item Explainable scoring for legal defensibility.
+\end{itemize}
+
+\subsection{Key snippets}
+\begin{codeblock}[language={}]{System flow (text diagram)}
+[Data Sources]
+  |- Goszakup GraphQL/API
+  |- eGov open data
+  |- KGD files (CSV/XML/PDF)
+  v
+[Ingest Workers]
+  -> raw.goszakup_protocols (JSONB)
+  -> raw.documents_registry
+  v
+[Application Service]
+  -> validate (Pydantic v2)
+  -> core upsert (company_dim, procurement_protocol_fact)
+  -> ops.dead_letter (bad records)
+  -> ops.outbox_events (domain events)
+  v
+[Outbox Relay]
+  -> ops.change_queue
+  v
+[Scoring Dispatcher]
+  -> rule strategies
+  -> scoring.alerts + scoring.alert_explanations
+  v
+[FastAPI + Document Factory]
+  -> Alert UI
+  -> PDF dossier
+  -> DOCX complaint draft for eOtinish
+\end{codeblock}
+
+\section{Phase 2: Database Architecture (CQRS Pattern --- OLTP vs OLAP)}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+A single database node cannot efficiently serve continuous ingestion writes and heavy analytics at the same time. OLTP and OLAP workloads compete for I/O, CPU, locks, and memory.
+
+When analytical joins and recomputations run on a write-heavy node, common failure modes appear:
+\begin{itemize}[leftmargin=1.4em]
+  \item I/O spikes and unstable write latency,
+  \item lock contention,
+  \item checkpoint pressure,
+  \item delayed ingestion and unreliable SLAs.
+\end{itemize}
+
+CQRS in this context means separating write truth from read/analytics processing:
+\begin{itemize}[leftmargin=1.4em]
+  \item \textbf{Master node (OLTP):} write-fast, transactional integrity, minimal heavy reads.
+  \item \textbf{Analytics node (OLAP):} heavy joins, geospatial logic, temporal rollups.
+\end{itemize}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{Master node (PostgreSQL 15, OLTP):}
+\begin{itemize}[leftmargin=1.4em]
+  \item Purpose: high-throughput ingestion of raw JSON and canonical transactional persistence.
+  \item Schemas: \texttt{raw}, \texttt{core}, \texttt{ops}.
+  \item Partitioning by date where beneficial.
+  \item Minimal expensive indexes on raw ingestion tables.
+  \item Strict idempotency keys (\texttt{source\_cursor}, \texttt{checksum}, natural business keys).
+\end{itemize}
+
+\textbf{Analytics node (OLAP):}
+\begin{itemize}[leftmargin=1.4em]
+  \item Replication from master (logical replication/CDC preferred).
+  \item Extensions: \texttt{postgis} for spatial rules, \texttt{timescaledb} for temporal analytics.
+  \item Additional schemas: \texttt{mart}, \texttt{scoring}, graph export staging.
+  \item Nightly refresh windows for heavy rollups/materialized views.
+\end{itemize}
+
+\subsection{Key snippets}
+\begin{codeblock}[language=SQL]{SQL bootstrapping}
+CREATE SCHEMA IF NOT EXISTS raw;
+CREATE SCHEMA IF NOT EXISTS core;
+CREATE SCHEMA IF NOT EXISTS ops;
+CREATE SCHEMA IF NOT EXISTS mart;
+CREATE SCHEMA IF NOT EXISTS scoring;
+\end{codeblock}
+
+\begin{codeblock}[language=SQL]{OLTP critical tables}
+CREATE TABLE IF NOT EXISTS raw.goszakup_protocols (
+    id BIGSERIAL PRIMARY KEY,
+    source_cursor TEXT NOT NULL,
+    source_batch_id UUID NOT NULL,
+    checksum TEXT NOT NULL,
+    payload JSONB NOT NULL,
+    scraped_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (source_cursor, checksum)
+);
+
+CREATE TABLE IF NOT EXISTS core.company_dim (
+    company_id BIGSERIAL PRIMARY KEY,
+    company_bin TEXT NOT NULL UNIQUE,
+    company_name TEXT,
+    company_type TEXT,
+    address_raw TEXT,
+    address_norm TEXT,
+    rka_code TEXT,
+    geog GEOGRAPHY(POINT, 4326),
+    source_raw_id BIGINT,
+    source_loaded_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS core.procurement_protocol_fact (
+    protocol_fact_id BIGSERIAL PRIMARY KEY,
+    protocol_id TEXT NOT NULL,
+    lot_id TEXT NOT NULL,
+    protocol_date DATE NOT NULL,
+    buyer_bin TEXT,
+    supplier_bin TEXT,
+    amount NUMERIC(18,2),
+    protocol_status TEXT,
+    rejection_reason TEXT,
+    is_antidumping BOOLEAN,
+    source_raw_id BIGINT,
+    source_loaded_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (protocol_date, protocol_id, lot_id)
+);
+\end{codeblock}
+
+\begin{codeblock}[language={}]{postgresql.conf (write-heavy OLTP baseline)}
+# Memory / connections
+max_connections = 200
+shared_buffers = 8GB
+effective_cache_size = 24GB
+work_mem = 16MB
+maintenance_work_mem = 1GB
+
+# WAL / checkpoints (write-heavy)
+wal_level = logical
+synchronous_commit = local
+wal_compression = on
+max_wal_size = 16GB
+min_wal_size = 4GB
+checkpoint_timeout = 30min
+checkpoint_completion_target = 0.9
+
+# Parallelism / I/O
+max_worker_processes = 16
+max_parallel_workers = 8
+max_parallel_workers_per_gather = 2
+effective_io_concurrency = 200
+random_page_cost = 1.1
+
+# Autovacuum tuned for JSON-heavy writes
+autovacuum = on
+autovacuum_naptime = 10s
+autovacuum_vacuum_scale_factor = 0.02
+autovacuum_analyze_scale_factor = 0.01
+\end{codeblock}
+
+\begin{codeblock}[language=SQL]{OLAP extension setup}
+CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE EXTENSION IF NOT EXISTS timescaledb;
+
+CREATE TABLE IF NOT EXISTS mart.buyer_daily_metrics (
+    day DATE NOT NULL,
+    buyer_bin TEXT NOT NULL,
+    total_tenders INT NOT NULL,
+    rejected_count INT NOT NULL,
+    PRIMARY KEY (day, buyer_bin)
+);
+
+SELECT create_hypertable(
+    'mart.buyer_daily_metrics',
+    by_range('day'),
+    if_not_exists => TRUE
+);
+\end{codeblock}
+
+\section{Phase 3: Data Ingestion \& Evasion Layer (Scraping \& OCR)}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+Public-sector sources are heterogeneous:
+\begin{itemize}[leftmargin=1.4em]
+  \item some records are available through APIs,
+  \item some are only visible in dynamic JavaScript pages,
+  \item some are uploaded as scanned PDFs.
+\end{itemize}
+
+Therefore ingestion must be resilient and staged, not a single fragile script:
+\begin{enumerate}[leftmargin=1.5em]
+  \item Fetch legally available source,
+  \item Preserve exact raw payload,
+  \item Extract linked documents,
+  \item OCR image-only documents,
+  \item Normalize noisy text,
+  \item Send cleaned record to validation and upsert.
+\end{enumerate}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{Access strategy (compliance-first):}
+\begin{itemize}[leftmargin=1.4em]
+  \item Priority 1: official APIs and published datasets.
+  \item Priority 2: browser automation for data unavailable via API.
+  \item Reliability controls: rate limits, retries, request budgets, rotating egress pools.
+  \item Source audit log per request for traceability.
+\end{itemize}
+
+\textbf{Headless browser tier:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Playwright workers with user-agent rotation.
+  \item Session/cookie isolation.
+  \item Retry backoff and circuit breaker.
+  \item Proxy pool abstraction (residential providers if contractually/legal approved).
+  \item CAPTCHA path via manual queue or approved service integration.
+\end{itemize}
+
+\textbf{OCR pipeline:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Detect text-PDF vs scanned PDF.
+  \item If text-PDF: direct extraction.
+  \item If scanned: page render + OCR with \texttt{kaz+rus+eng}.
+  \item Persist OCR text, confidence score, and page-level metadata.
+  \item Route low-confidence pages to manual review.
+\end{itemize}
+
+\textbf{Dirty data normalization:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Unicode normalization (\texttt{NFKC}).
+  \item Cyrillic/Latin confusable replacement.
+  \item Address standardization + RKA geocoding where possible.
+  \item Number/currency/date normalization.
+\end{itemize}
+
+\subsection{Key snippets}
+\begin{codeblock}[language=Python]{Playwright worker skeleton (Python)}
+from playwright.async_api import async_playwright
+
+async def fetch_dynamic_page(url: str, proxy: dict | None):
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True, proxy=proxy)
+        ctx = await browser.new_context(user_agent="Mozilla/5.0 ...")
+        page = await ctx.new_page()
+        await page.goto(url, wait_until="networkidle", timeout=60_000)
+        content = await page.content()
+        await browser.close()
+        return content
+\end{codeblock}
+
+\begin{codeblock}[language=Python]{OCR detection and extraction}
+import fitz  # PyMuPDF
+import pytesseract
+from PIL import Image
+
+def pdf_has_text(pdf_path: str) -> bool:
+    doc = fitz.open(pdf_path)
+    for page in doc:
+        if page.get_text().strip():
+            return True
+    return False
+
+def ocr_pdf_page_images(images: list[Image.Image]) -> str:
+    chunks = []
+    for i, img in enumerate(images):
+        text = pytesseract.image_to_string(img, lang="kaz+rus+eng")
+        chunks.append(f"\n--- page {i+1} ---\n{text}")
+    return "".join(chunks)
+\end{codeblock}
+
+\begin{codeblock}[language=Python]{Confusable Cyrillic/Latin cleanup}
+CONFUSABLE_MAP = str.maketrans({
+    "A": "А", "B": "В", "C": "С", "E": "Е", "H": "Н", "K": "К",
+    "M": "М", "O": "О", "P": "Р", "T": "Т", "X": "Х",
+    "a": "а", "c": "с", "e": "е", "o": "о", "p": "р", "x": "х", "y": "у"
+})
+
+def normalize_text(s: str) -> str:
+    import unicodedata
+    import re
+    s = unicodedata.normalize("NFKC", s)
+    s = s.translate(CONFUSABLE_MAP)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+\end{codeblock}
+
+\section{Phase 4: Application Layer \& Transactional Pipeline (Outbox Pattern)}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+The dual-write problem occurs when an application:
+\begin{enumerate}[leftmargin=1.5em]
+  \item writes business data to a database, then
+  \item publishes an event to a queue,
+\end{enumerate}
+and crashes between these actions.
+
+Outbox pattern addresses this by writing business updates and event rows in the same database transaction. A separate relay worker later publishes pending outbox events to the queue.
+
+This guarantees two critical properties:
+\begin{itemize}[leftmargin=1.4em]
+  \item no lost events,
+  \item no phantom events.
+\end{itemize}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{Pipeline components:}
+\begin{itemize}[leftmargin=1.4em]
+  \item \texttt{RawBatchReader} (watermark + batch leasing),
+  \item \texttt{RawRecordValidator} (Pydantic v2),
+  \item \texttt{CoreUpsertService} (idempotent upserts, no triggers),
+  \item \texttt{OutboxWriter} (domain events),
+  \item \texttt{OutboxRelayWorker} (\texttt{ops.outbox\_events} to \texttt{ops.change\_queue}),
+  \item \texttt{DeadLetterWriter} (\texttt{ops.dead\_letter}),
+  \item \texttt{UnitOfWork} with explicit transaction boundaries.
+\end{itemize}
+
+\textbf{Idempotency keys:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Raw layer: (\texttt{source\_cursor}, \texttt{checksum}),
+  \item Fact layer: (\texttt{protocol\_date}, \texttt{protocol\_id}, \texttt{lot\_id}),
+  \item Company layer: \texttt{company\_bin},
+  \item Alert/event layer: fingerprint + UUID.
+\end{itemize}
+
+\subsection{Key snippets}
+\begin{codeblock}[language=SQL]{Outbox + dead-letter DDL}
+CREATE TABLE IF NOT EXISTS ops.dead_letter (
+    dead_letter_id BIGSERIAL PRIMARY KEY,
+    raw_id BIGINT,
+    source_cursor TEXT,
+    source_batch_id UUID,
+    checksum TEXT,
+    error_type TEXT NOT NULL,
+    error_message TEXT NOT NULL,
+    validation_errors JSONB,
+    payload JSONB,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS ops.outbox_events (
+    event_id UUID PRIMARY KEY,
+    event_type TEXT NOT NULL,
+    aggregate_type TEXT NOT NULL,
+    aggregate_id TEXT NOT NULL,
+    payload JSONB NOT NULL,
+    occurred_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    published_at TIMESTAMPTZ,
+    publish_status TEXT NOT NULL DEFAULT 'pending',
+    source_batch_id UUID
+);
+
+CREATE TABLE IF NOT EXISTS ops.change_queue (
+    queue_id BIGSERIAL PRIMARY KEY,
+    entity_type TEXT NOT NULL,
+    entity_id TEXT NOT NULL,
+    bucket_date DATE,
+    payload JSONB,
+    status TEXT NOT NULL DEFAULT 'pending',
+    attempts INT NOT NULL DEFAULT 0,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+\end{codeblock}
+
+\begin{codeblock}[language=SQL]{Idempotent upsert (SQL)}
+INSERT INTO core.procurement_protocol_fact (
+    protocol_id, lot_id, protocol_date, buyer_bin, supplier_bin,
+    amount, protocol_status, rejection_reason, is_antidumping,
+    source_raw_id, source_loaded_at
+)
+VALUES (
+    :protocol_id, :lot_id, :protocol_date, :buyer_bin, :supplier_bin,
+    :amount, :protocol_status, :rejection_reason, :is_antidumping,
+    :source_raw_id, now()
+)
+ON CONFLICT (protocol_date, protocol_id, lot_id)
+DO UPDATE SET
+    buyer_bin = EXCLUDED.buyer_bin,
+    supplier_bin = EXCLUDED.supplier_bin,
+    amount = EXCLUDED.amount,
+    protocol_status = EXCLUDED.protocol_status,
+    rejection_reason = EXCLUDED.rejection_reason,
+    is_antidumping = EXCLUDED.is_antidumping,
+    source_raw_id = EXCLUDED.source_raw_id,
+    source_loaded_at = now(),
+    updated_at = now();
+\end{codeblock}
+
+\begin{codeblock}[language=Python]{SQLAlchemy 2.0 transactional unit}
+from sqlalchemy.orm import Session
+from uuid import uuid4
+
+def process_raw_record(session: Session, raw_rec: dict):
+    try:
+        # 1) Validate payload
+        model = RawGoszakupProtocolPayload.model_validate(raw_rec["payload"])
+
+        with session.begin():
+            # 2) Upsert canonical entities
+            upsert_company(session, model.buyer)
+            upsert_company(session, model.supplier)
+            upsert_protocol_fact(session, model, source_raw_id=raw_rec["id"])
+
+            # 3) Write outbox event in the same transaction
+            event = {
+                "event_id": str(uuid4()),
+                "event_type": "ProcurementProtocolUpserted",
+                "aggregate_type": "ProcurementProtocol",
+                "aggregate_id": f"{model.protocol_id}:{model.lot_id}",
+                "payload": model.model_dump(mode="json"),
+                "source_batch_id": raw_rec["source_batch_id"]
+            }
+            insert_outbox(session, event)
+    except Exception as exc:
+        write_dead_letter(session, raw_rec, exc)
+\end{codeblock}
+
+\begin{codeblock}[language=SQL]{Relay query pattern}
+SELECT event_id, event_type, aggregate_type, aggregate_id, payload
+FROM ops.outbox_events
+WHERE publish_status = 'pending'
+ORDER BY occurred_at
+FOR UPDATE SKIP LOCKED
+LIMIT 500;
+\end{codeblock}
+
+\section{Phase 5: Historical Tracking \& Graph Database (SCD Type 2 \& Neo4j)}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+If company founders or addresses are overwritten in place, historical evidence is destroyed. Many procurement risks are temporal by nature (for example, a founder change shortly before tender publication).
+
+SCD Type 2 preserves full history by storing versions with:
+\begin{itemize}[leftmargin=1.4em]
+  \item \texttt{valid\_from},
+  \item \texttt{valid\_to} (NULL for active version),
+  \item \texttt{is\_current}.
+\end{itemize}
+
+This enables time-accurate questions such as:
+\begin{quote}
+``Who was the founder on the tender date?''
+\end{quote}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{Relational temporal layer (SCD2):}
+\begin{itemize}[leftmargin=1.4em]
+  \item \texttt{core.company\_dim\_scd}
+  \item \texttt{core.person\_dim\_scd}
+  \item \texttt{core.company\_person\_rel\_scd}
+\end{itemize}
+
+\textbf{Update semantics:}
+\begin{enumerate}[leftmargin=1.5em]
+  \item close current row (\texttt{valid\_to = now()}, \texttt{is\_current = false}),
+  \item insert a new current row with changed attributes.
+\end{enumerate}
+
+\textbf{Neo4j temporal graph model:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Nodes: \texttt{Company}, \texttt{Person}, \texttt{Address}, \texttt{TenderLot}.
+  \item Time-valid edges:
+  \begin{itemize}[leftmargin=1.4em]
+    \item \texttt{(:Person)-[:IS\_FOUNDER\_OF \{valid\_from, valid\_to\}]->(:Company)}
+    \item \texttt{(:Person)-[:IS\_DIRECTOR\_OF \{...\}]->(:Company)}
+    \item \texttt{(:Company)-[:REGISTERED\_AT \{...\}]->(:Address)}
+    \item \texttt{(:Company)-[:PARTICIPATED\_IN \{lot\_id, date\}]->(:TenderLot)}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Entity resolution:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Deterministic matching by BIN/IIN first,
+  \item Probabilistic matching for name/address variants,
+  \item Phonetic normalization and RKA-aware address geocoding,
+  \item Persist \texttt{confidence\_score} and \texttt{match\_method}.
+\end{itemize}
+
+\subsection{Key snippets}
+\begin{codeblock}[language=SQL]{SCD Type 2 DDL}
+CREATE TABLE IF NOT EXISTS core.company_dim_scd (
+    company_scd_id BIGSERIAL PRIMARY KEY,
+    company_bin TEXT NOT NULL,
+    company_name TEXT,
+    address_norm TEXT,
+    rka_code TEXT,
+    company_type TEXT,
+    valid_from TIMESTAMPTZ NOT NULL,
+    valid_to TIMESTAMPTZ,
+    is_current BOOLEAN NOT NULL DEFAULT TRUE,
+    hash_diff TEXT NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS ux_company_current
+ON core.company_dim_scd(company_bin)
+WHERE is_current = TRUE;
+\end{codeblock}
+
+\begin{codeblock}[language=SQL]{SCD2 update transaction (concept)}
+-- Close current
+UPDATE core.company_dim_scd
+SET valid_to = now(), is_current = FALSE
+WHERE company_bin = :bin
+  AND is_current = TRUE
+  AND hash_diff <> :new_hash;
+
+-- Open new version if changed
+INSERT INTO core.company_dim_scd (
+  company_bin, company_name, address_norm, rka_code, company_type,
+  valid_from, valid_to, is_current, hash_diff
+)
+SELECT :bin, :name, :addr, :rka, :ctype, now(), NULL, TRUE, :new_hash
+WHERE EXISTS (
+  SELECT 1
+  WHERE NOT EXISTS (
+    SELECT 1
+    FROM core.company_dim_scd
+    WHERE company_bin = :bin
+      AND is_current = TRUE
+      AND hash_diff = :new_hash
+  )
+);
+\end{codeblock}
+
+\begin{codeblock}[language={}]{Neo4j constraints + temporal edge merge}
+CREATE CONSTRAINT company_bin IF NOT EXISTS
+FOR (c:Company) REQUIRE c.bin IS UNIQUE;
+
+CREATE CONSTRAINT person_iin IF NOT EXISTS
+FOR (p:Person) REQUIRE p.iin IS UNIQUE;
+
+MERGE (p:Person {iin: $iin})
+MERGE (c:Company {bin: $bin})
+MERGE (p)-[r:IS_FOUNDER_OF {source_ref: $source_ref}]->(c)
+SET r.valid_from = datetime($valid_from),
+    r.valid_to   = datetime($valid_to);
+\end{codeblock}
+
+\section{Phase 6: The Risk Scoring Engine (Rule-Based, No ML)}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+At this stage, deterministic rule-based scoring is preferred to machine learning because legal defensibility and traceability are mandatory.
+
+Reasons to avoid black-box models in initial production:
+\begin{itemize}[leftmargin=1.4em]
+  \item difficult to explain in legal or regulatory review,
+  \item potentially high false-positive cost,
+  \item weak line-by-line evidence mapping.
+\end{itemize}
+
+Rule-based scoring provides:
+\begin{itemize}[leftmargin=1.4em]
+  \item explicit indicators,
+  \item transparent scores,
+  \item explainable evidence for each alert.
+\end{itemize}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{Strategy Pattern components:}
+\begin{itemize}[leftmargin=1.4em]
+  \item \texttt{BaseScoringRule},
+  \item concrete rules:
+    \texttt{AkimatKillerRule},
+    \texttt{AntiDumpingSniperRule},
+    \texttt{SpatialAnomalyRule},
+    \texttt{HiddenNetworkRule}.
+\end{itemize}
+
+\textbf{Dispatcher flow:}
+\begin{enumerate}[leftmargin=1.5em]
+  \item lock pending item from \texttt{ops.change\_queue} with \texttt{FOR UPDATE SKIP LOCKED},
+  \item select applicable rules by \texttt{entity\_type},
+  \item execute rules and compute candidates,
+  \item upsert alerts and explanations,
+  \item mark queue item done/failed and write \texttt{ops.rule\_run\_log}.
+\end{enumerate}
+
+\textbf{Risk formula:}
+\[
+RI(x) = 100 \cdot \sum_{i=1}^{n} w_i \cdot I_i(x), \qquad
+\sum_{i=1}^{n} w_i = 1, \qquad
+I_i(x) \in [0,1].
+\]
+
+Store weights and thresholds in a DB/UI configuration table so calibration does not require redeployment.
+
+\subsection{Key snippets}
+\begin{codeblock}[language=Python]{Strategy interface}
+from dataclasses import dataclass
+from typing import Protocol, List, Dict, Any
+
+@dataclass
+class AlertCandidate:
+    rule_name: str
+    rule_version: int
+    entity_type: str
+    entity_id: str
+    score: float
+    severity: str
+    status: str
+    window_start: str
+    window_end: str
+    fingerprint: str
+    evidence: Dict[str, Any]
+
+class BaseScoringRule(Protocol):
+    rule_name: str
+    rule_version: int
+    def applicable_entities(self) -> list[str]: ...
+    def compute(self, context) -> List[AlertCandidate]: ...
+\end{codeblock}
+
+\begin{codeblock}[language=SQL]{Hidden network idea (SQL CTE with shared identifiers)}
+WITH lot_parties AS (
+  SELECT lot_id, supplier_bin
+  FROM core.procurement_protocol_fact
+  WHERE protocol_date >= current_date - INTERVAL '180 days'
+),
+ident AS (
+  SELECT company_bin, lower(email) AS email, regexp_replace(phone, '\D','','g') AS phone
+  FROM core.company_contacts
+),
+shared AS (
+  SELECT a.lot_id,
+         i1.company_bin AS c1,
+         i2.company_bin AS c2,
+         (i1.email = i2.email AND i1.email IS NOT NULL) AS shared_email,
+         (i1.phone = i2.phone AND i1.phone IS NOT NULL) AS shared_phone
+  FROM lot_parties a
+  JOIN lot_parties b
+    ON a.lot_id = b.lot_id
+   AND a.supplier_bin < b.supplier_bin
+  JOIN ident i1 ON i1.company_bin = a.supplier_bin
+  JOIN ident i2 ON i2.company_bin = b.supplier_bin
+)
+SELECT *
+FROM shared
+WHERE shared_email OR shared_phone;
+\end{codeblock}
+
+\begin{codeblock}[language={}]{Betweenness centrality example (Neo4j GDS)}
+CALL gds.betweenness.stream('procurementGraph')
+YIELD nodeId, score
+RETURN gds.util.asNode(nodeId).bin AS company_bin, score
+ORDER BY score DESC
+LIMIT 50;
+\end{codeblock}
+
+\section{Phase 7: Legal Engineering \& Document Generation (The Output)}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+The system must produce legally usable outputs, not only anomaly flags.
+
+Primary end-user flow (auditor/legal expert):
+\begin{enumerate}[leftmargin=1.5em]
+  \item Open alert list,
+  \item Filter by severity/rule/region,
+  \item Open a case and inspect timeline/evidence,
+  \item Generate both:
+    \begin{itemize}[leftmargin=1.4em]
+      \item visual PDF dossier,
+      \item DOCX complaint draft ready for eOtinish submission.
+    \end{itemize}
+\end{enumerate}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{UX/UI flow:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Alerts list with traffic-light severity coding.
+  \item Alert detail with indicator-level score breakdown.
+  \item Evidence blocks + linked entity graph + chronology.
+  \item ``Generate Documents'' action:
+    completeness validation,
+    linguistic shield transform,
+    PDF/DOCX render,
+    artifact audit logging.
+\end{itemize}
+
+\textbf{Linguistic shield policy:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Replace legally aggressive statements with neutral, probabilistic formulations.
+  \item Always append disclaimer:
+  \begin{quote}
+  ``Algorithmic risk assessment based on open data; not a direct assertion of criminal guilt.''
+  \end{quote}
+\end{itemize}
+
+\subsection{Key snippets}
+\begin{codeblock}[language=Python]{Linguistic shield dictionary}
+SHIELD_TERMS = {
+    "картельный сговор": "признаки синхронности поведения и потенциальной аффилированности",
+    "фиктивное ТОО": "компания с признаками высокой транзитивности",
+    "заточенный тендер": "техническая спецификация с аномально узкими критериями"
+}
+
+def apply_linguistic_shield(text: str) -> str:
+    out = text
+    for src, dst in SHIELD_TERMS.items():
+        out = out.replace(src, dst)
+    return out
+\end{codeblock}
+
+\begin{codeblock}[language=Python]{FastAPI endpoint sketch}
+@router.get("/api/v1/alerts", response_model=AlertPage)
+async def list_alerts(
+    rule_name: str | None = None,
+    severity: str | None = None,
+    status: str | None = None,
+    entity_type: str | None = None,
+    entity_id: str | None = None,
+    date_from: date | None = None,
+    date_to: date | None = None,
+    page: int = 1,
+    page_size: int = 50,
+):
+    return await alert_query_service.fetch_page(...)
+\end{codeblock}
+
+\begin{codeblock}[language=Python]{DOCX generation (python-docx)}
+from docx import Document
+
+def build_complaint_docx(alert, explanation, output_path: str):
+    doc = Document()
+    doc.add_heading("Draft Complaint for eOtinish", level=1)
+    doc.add_paragraph(f"Alert ID: {alert.alert_id}")
+    doc.add_paragraph(f"Rule: {alert.rule_name} v{alert.rule_version}")
+    doc.add_paragraph("Factual evidence:")
+    for k, v in explanation["evidence"].items():
+        doc.add_paragraph(f"- {k}: {v}")
+    doc.add_paragraph(
+      "Disclaimer: This report is an algorithmic risk assessment based on open data."
+    )
+    doc.save(output_path)
+    return output_path
+\end{codeblock}
+
+\section{Phase 8: DevOps, Deployment, \& Human-in-the-Loop}
+
+\subsection{Conceptual explanation (for beginners)}
+\begin{conceptbox}
+This solution is not a single application. It is a distributed data factory plus analytics and legal-output platform. Stable operations require service decomposition, infrastructure boundaries, and clear human checkpoints.
+
+AI accelerates implementation, but several responsibilities remain human-critical:
+\begin{itemize}[leftmargin=1.4em]
+  \item anti-bot operational tactics,
+  \item production reliability and incident response,
+  \item risk-weight calibration governance,
+  \item legal accountability and external communications.
+\end{itemize}
+\end{conceptbox}
+
+\subsection{Technical design}
+\textbf{Dockerized services:}
+\begin{itemize}[leftmargin=1.4em]
+  \item \texttt{api} (FastAPI presentation/query),
+  \item \texttt{ingest-worker} (collectors),
+  \item \texttt{normalize-worker} (validation + raw to core),
+  \item \texttt{outbox-relay} (outbox to queue),
+  \item \texttt{scoring-worker} (rule dispatcher),
+  \item \texttt{doc-service} (PDF/DOCX generation),
+  \item \texttt{postgres-master} (OLTP),
+  \item \texttt{postgres-analytics} (OLAP + PostGIS/Timescale),
+  \item \texttt{neo4j}, \texttt{redis}/\texttt{rabbitmq},
+  \item \texttt{prometheus} + \texttt{grafana} + \texttt{loki}.
+\end{itemize}
+
+\textbf{Physical split topology:}
+\begin{itemize}[leftmargin=1.4em]
+  \item \textbf{Server A (Kazakhstan):} low-latency ingestion gateway, raw write path, minimal external exposure.
+  \item \textbf{Server B (abroad):} heavy analytics, graph processing, document assembly.
+  \item Private interconnect via WireGuard tunnel; no public database ports.
+\end{itemize}
+
+\textbf{Human-in-the-loop checkpoints:}
+\begin{itemize}[leftmargin=1.4em]
+  \item Data quality console for dead-letter triage,
+  \item Manual whitelist/exception workflow for known mass-registration addresses,
+  \item Rule tuning UI for weights/thresholds,
+  \item Legal review queue before complaint submission.
+\end{itemize}
+
+\subsection{Key snippets}
+\begin{codeblock}[language={}]{docker-compose (condensed)}
+version: "3.9"
+services:
+  postgres-master:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: audit
+      POSTGRES_USER: audit
+      POSTGRES_PASSWORD: audit
+    ports: ["5432:5432"]
+    volumes: ["pg_master:/var/lib/postgresql/data"]
+
+  postgres-analytics:
+    image: timescale/timescaledb-ha:pg15
+    environment:
+      POSTGRES_DB: audit_olap
+      POSTGRES_USER: audit
+      POSTGRES_PASSWORD: audit
+    ports: ["5433:5432"]
+    volumes: ["pg_olap:/var/lib/postgresql/data"]
+
+  neo4j:
+    image: neo4j:5
+    environment:
+      NEO4J_AUTH: neo4j/password
+    ports: ["7474:7474", "7687:7687"]
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports: ["5672:5672", "15672:15672"]
+
+  api:
+    build: ./services/api
+    depends_on: [postgres-analytics, redis]
+    ports: ["8000:8000"]
+
+  ingest-worker:
+    build: ./services/ingest
+    depends_on: [postgres-master, rabbitmq]
+
+volumes:
+  pg_master:
+  pg_olap:
+\end{codeblock}
+
+\begin{codeblock}[language={}]{WireGuard concept}
+# /etc/wireguard/wg0.conf (example structure)
+[Interface]
+Address = 10.8.0.1/24
+PrivateKey = <serverA_private_key>
+ListenPort = 51820
+
+[Peer]
+PublicKey = <serverB_public_key>
+AllowedIPs = 10.8.0.2/32
+Endpoint = <serverB_public_ip>:51820
+PersistentKeepalive = 25
+\end{codeblock}
+
+\subsection{Final implementation guidance (practical sequence)}
+\begin{enumerate}[leftmargin=1.5em]
+  \item Stand up OLTP + OLAP + queue + Neo4j via Docker.
+  \item Create schemas/tables, including \texttt{ops.outbox\_events} and \texttt{ops.dead\_letter}, first.
+  \item Implement raw ingestion and watermarking.
+  \item Add validation + idempotent upsert + outbox transaction.
+  \item Implement outbox relay and change queue workers.
+  \item Build scoring dispatcher and first four rules.
+  \item Add legal-safe document generation (PDF + DOCX).
+  \item Add observability, dead-letter console, and rule-tuning UI.
+  \item Deploy split topology (KZ gateway + abroad analytics) over WireGuard.
+  \item Run one-week pilot, calibrate, then backfill the 2024--2025 archive.
+\end{enumerate}
+
+\vspace{1.2em}
+\begin{center}
+\textcolor{MutedGray}{\rule{0.75\textwidth}{0.4pt}}
+\end{center}
+\begin{center}
+\small\textcolor{MutedGray}{Algorithmic risk assessment based on open data; not a direct assertion of criminal guilt.}
+\end{center}
+
+\end{document}
