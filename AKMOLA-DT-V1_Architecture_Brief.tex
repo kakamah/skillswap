@@ -1,0 +1,351 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=MidnightBlue,
+  citecolor=black,
+  pdftitle={AKMOLA-DT-V1 Architecture Brief}
+}
+
+\definecolor{accent}{HTML}{1E4E79}
+\definecolor{textgray}{HTML}{4A4A4A}
+
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setstretch{1.08}
+\renewcommand{\arraystretch}{1.2}
+
+\newcommand{\vone}{\textsc{Mandatory in V1}}
+\newcommand{\later}{\textsc{Deferred Beyond V1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{2.5cm}
+  {\LARGE\bfseries AKMOLA-DT-V1\par}
+  \vspace{0.35cm}
+  {\Large A Regional Snowmelt-Aware Flood Intelligence Architecture\\for Akmola / Astana\par}
+  \vspace{1.2cm}
+  {\large Architecture Brief\par}
+  \vspace{1.2cm}
+
+  \begin{minipage}{0.88\textwidth}
+    \small
+    \color{textgray}
+    This memorandum defines a buildable architecture for flood intelligence in weak-gradient steppe terrain. The design joins regional hydrologic context, snowmelt-first forcing, and nested local micro-relief simulation for priority exposed zones. It rejects generic AI-first framing and anchors credibility in historical event replay, boundary-aware storage logic, and impact-oriented outputs suitable for district decision workflows.
+  \end{minipage}
+
+  \vfill
+  \begin{tabular}{rl}
+    Project: & AKMOLA-DT-V1 \\
+    Prepared for: & Regional flood intelligence development track \\
+    Prepared by: & Student systems architecture team \\
+    Date: & \today \\
+  \end{tabular}
+\end{titlepage}
+
+\section{Executive Reset}
+
+The earlier framing was technically ambitious but strategically exposed. It foregrounded algorithmic identity before hydrologic structure, and it treated a regionally coupled steppe system as if a local tile could stand on its own. That mismatch is easy to challenge in any serious review.
+
+Four corrections were necessary. First, the project had to move away from generic AI flood language and return to its strongest scientific claim: flat-steppe micro-relief hydrology. Second, quantum and model-brand narratives had to be demoted; they are not the source of first-order reliability in an operationally credible V1. Third, regional boundary behavior had to be made explicit, because weak-gradient connectivity allows external water and antecedent storage to shape local outcomes. Fourth, forcing logic had to pivot from rainfall-first to snowmelt-first, reflecting the plausible seasonal flood regime in Akmola and Astana.
+
+This reset is not cosmetic. It is a structural correction from a technically interesting concept to a defensible regional intelligence architecture.
+
+\section{Corrected Central Thesis}
+
+AKMOLA-DT-V1 is a regional snowmelt-aware flood intelligence architecture that combines Akmola-scale terrain and hydrologic context, boundary-aware depression storage and spill connectivity, and nested high-detail local simulation in priority flood-exposed zones; its credibility is established through historical event replay and impact-based validation rather than algorithmic novelty claims.
+
+\section{Architectural Principles}
+
+\begin{enumerate}[leftmargin=1.5em,itemsep=0.35em]
+  \item \textbf{Regional context first.} Local predictions are constrained by upstream storage, boundary inflow, and network connectivity across the broader domain.
+  \item \textbf{Snowmelt-first forcing.} Seasonal snow accumulation and melt release drive the primary event narrative; rainfall is a modifier, not the sole trigger.
+  \item \textbf{Flat-steppe micro-relief sensitivity.} Weak gradients and shallow depressions control storage and threshold spill transitions.
+  \item \textbf{Nested local windows.} High-detail simulation is concentrated where decisions are made: settlements, road corridors, and known hotspot basins.
+  \item \textbf{Historical replay as a design constraint.} The system is designed around reconstructing known events, not added as a late evaluation convenience.
+  \item \textbf{Impact-oriented outputs.} Deliverables must map to exposed roads, settlements, and district summaries, not only internal model states.
+\end{enumerate}
+
+\section{System Architecture}
+
+Let $\Omega_R$ denote the regional domain, $G_R$ the regional hydro-context graph, $L_i$ local simulation windows, and $t$ event time. The architecture is organized into eight modules.
+
+\subsection{Module 1 --- Regional Terrain and Hydro-Context Layer}
+\textbf{What it does.} Builds the regional backbone: major channels, floodplains, wetlands, transport embankments, broad storage zones, and weak-gradient connectivity pathways.
+
+\textbf{Why it exists.} Local flood behavior is not hydrologically closed in this setting.
+
+\textbf{Why it matters in Akmola.} External inflow can arrive slowly through subtle gradients and still control local inundation timing.
+
+\textbf{V1 status.} \vone.
+
+\textbf{Formal role.}
+\[
+\mathcal{C}_R:\Omega_R \rightarrow G_R.
+\]
+
+\subsection{Module 2 --- DEM Conditioning / Hydro-Enforcement Layer}
+\textbf{What it does.} Converts raw elevation $z_{\mathrm{raw}}$ into a hydrologically usable surface $z_{\mathrm{hydro}}$ by correcting artifacts while preserving true depressions and anthropogenic controls.
+
+\textbf{Why it exists.} Flat-terrain predictions fail rapidly when false pits or digital barriers remain unresolved.
+
+\textbf{Why it matters in Akmola.} Micro-relief is the governing signal; small vertical errors alter storage and spill topology.
+
+\textbf{V1 status.} \vone.
+
+\textbf{Formal role.}
+\[
+z_{\mathrm{raw}} \mapsto z_{\mathrm{hydro}}, \qquad
+\text{subject to preservation of true storage basins.}
+\]
+
+\subsection{Module 3 --- Depression / Storage / Spill Graph Layer}
+\textbf{What it does.} Constructs a threshold graph of fill-and-spill dynamics across local storage cells.
+
+\textbf{Why it exists.} Flood propagation in flat terrain is governed by basin filling sequence and spill activation, not slope direction alone.
+
+\textbf{Why it matters in Akmola.} Shallow depressions and saddle thresholds create non-linear connectivity changes during thaw periods.
+
+\textbf{V1 status.} \vone.
+
+\textbf{Formal role.}
+\[
+G_D=(V_D,E_D,\sigma,c,r),
+\]
+where $V_D$ are storage units, $E_D$ spill links, $\sigma$ spill elevations, $c$ capacities, and $r$ hydraulic resistance proxies.
+
+\subsection{Module 4 --- Snowmelt and Hydrometeorological Forcing Layer}
+\textbf{What it does.} Represents seasonal snow storage, thaw activation, rain-on-snow interaction, and baseline atmospheric forcing.
+
+\textbf{Why it exists.} The forcing narrative must match regional event physics.
+
+\textbf{Why it matters in Akmola.} A rain-only story is structurally weak for spring flood interpretation.
+
+\textbf{V1 status.} \vone\ in simplified form.
+
+\textbf{Formal role.}
+\[
+F_t=\{SWE_t,\;M_t,\;P_t,\;T_t,\;B_t\},
+\]
+with snow storage $SWE_t$, melt release $M_t$, rainfall $P_t$, thermal trigger $T_t$, and background/boundary forcing $B_t$.
+
+\subsection{Module 5 --- Regional Connectivity / Boundary Inflow Layer}
+\textbf{What it does.} Derives boundary conditions for each local window from regional state and forcing.
+
+\textbf{Why it exists.} It prevents tile-isolation error and enforces cross-scale consistency.
+
+\textbf{Why it matters in Akmola.} Weak gradients make antecedent storage and inflow histories decisive for local outcomes.
+
+\textbf{V1 status.} \vone.
+
+\textbf{Formal role.}
+\[
+B_{L_i,t}=\Gamma(G_R,F_t,X_{R,t}),
+\]
+where $B_{L_i,t}$ supplies inflow/outflow constraints for window $L_i$.
+
+\subsection{Module 6 --- Local Simulation Window Layer}
+\textbf{What it does.} Runs high-detail micro-relief flood simulation only in selected priority windows.
+
+\textbf{Why it exists.} Full-region high-resolution dynamics are not required for credible decisions and are not feasible for V1.
+
+\textbf{Why it matters in Akmola.} Local consequence mapping depends on preserving fine threshold geometry near settlements and roads.
+
+\textbf{V1 status.} \vone\ for a limited set of windows.
+
+\textbf{Formal role.}
+\[
+X_{L_i,t+\Delta t}=S_{L_i}\!\left(X_{L_i,t},F_{L_i,t},B_{L_i,t},G_{D,i}\right).
+\]
+
+\subsection{Module 7 --- Historical Event Replay / Validation Layer}
+\textbf{What it does.} Reconstructs known events using archived forcing and compares predicted impacts against observed evidence.
+
+\textbf{Why it exists.} Without replay, the system remains an unverified simulator.
+
+\textbf{Why it matters in Akmola.} Stakeholder confidence depends on whether known flood patterns are reproduced in plausible order and extent.
+
+\textbf{V1 status.} \vone.
+
+\textbf{Formal role.}
+\[
+\mathcal{R}_e:\{F^{(e)}_{0:T_e},X^{(e)}_0\}\mapsto \{\hat{X}^{(e)}_t\}_{t=0}^{T_e},
+\quad
+\mathcal{M}_e=\mathcal{M}\!\left(\hat{X}^{(e)},Y^{(e)}_{\mathrm{hist}}\right).
+\]
+
+\subsection{Module 8 --- Output / Decision-Support Layer}
+\textbf{What it does.} Produces hotspot maps, settlement and road exposure rankings, district summaries, and replay-ready event reports.
+
+\textbf{Why it exists.} Authorities act on interpretable geospatial impact products, not latent model states.
+
+\textbf{Why it matters in Akmola.} District-level planning requires traceable links between hazard states and infrastructure exposure.
+
+\textbf{V1 status.} \vone.
+
+\textbf{Formal role.}
+\[
+O_t=\Psi(\hat{X}_t, I, A),
+\]
+where $I$ denotes impact layers and $A$ administrative/infrastructure layers.
+
+\section{Regional vs Local Logic}
+
+This two-level design is the architectural center of gravity.
+
+\textbf{Level 1: Regional backbone.} The regional layer tracks snow storage, melt progression, broad routing pathways, floodplain interaction, and zone-level risk transfer. Its purpose is context fidelity: where water is likely to originate, accumulate, and propagate across districts.
+
+\textbf{Level 2: Nested local windows.} The local layer resolves micro-relief dynamics only in selected high-consequence areas. Its purpose is actionable detail: which roads are exposed, which settlement cells cross thresholds, and which basins transition from storage to spill.
+
+Coupling is explicit. The regional layer provides $(B_{L_i,t},F_{L_i,t},R^{\mathrm{ctx}}_{L_i,t})$ to each window. Local windows return impact products $O^{\mathrm{imp}}_{L_i,t}$ to the regional decision layer. This avoids the two common failures of student systems: implausible whole-region fine-scale simulation and isolated tile models with boundary blind spots.
+
+The result is disciplined rather than maximalist: regional realism where context dominates, local detail where consequences are judged.
+
+\section{Snowmelt Pivot}
+
+The forcing story must begin with seasonal storage and release:
+\[
+\text{Snow accumulation} \;\rightarrow\; \text{thaw activation} \;\rightarrow\; \text{regional routing/storage} \;\rightarrow\; \text{local overflow}.
+\]
+
+Rainfall remains relevant, especially during thaw transitions, but it is not the organizing driver for a serious Akmola spring flood architecture.
+
+A concise V1 state representation is:
+\[
+X_t=\{h_t,q_t,s_t,SWE_t,\phi_t,b_t\},
+\]
+with surface depth $h_t$, lateral flux proxy $q_t$, memory state $s_t$, snow storage $SWE_t$, depression fill state $\phi_t$, and boundary state $b_t$.
+
+Forcing can be expressed as:
+\[
+F_t=\{T_t,P_t,M_t,U_t\},
+\]
+with thermal forcing $T_t$, rainfall $P_t$, melt input $M_t$, and upstream/boundary input $U_t$.
+
+V1 does not require full cryosphere physics. It requires a defensible seasonal storage-release mechanism with transparent assumptions and scenario bounds.
+
+\section{Historical Validation Strategy}
+
+Historical replay is mandatory because it tests the architecture against known consequences, not only internal consistency.
+
+Evidence can include affected settlements, flooded road segments, district impact reports, documented hotspot zones, event timing windows, satellite-derived footprints where available, and archived snow-weather conditions.
+
+\subsection*{Validation logic}
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.27\textwidth}Y@{}}
+\toprule
+Validation target & Practical interpretation \\
+\midrule
+Hotspot overlap & Did predicted high-risk zones intersect known flooded areas? \\
+Settlement hit rate & Were affected villages or urban fringes correctly flagged? \\
+Road exposure ranking & Were historically disrupted corridors ranked near the top? \\
+District consistency & Did district-level ordering match observed impact patterns? \\
+Onset timing & Did risk intensify in the right sequence and window? \\
+False alarms & Did the system discriminate, or flood nearly everything? \\
+\bottomrule
+\end{tabularx}
+
+\subsection*{Event set for V1}
+A compact but credible event bank should include: one snowmelt-dominant spring flood, one mixed thaw-plus-rain event, one moderate localized event, and one weak or non-event case for false-positive control.
+
+\subsection*{Metric posture}
+Where full depth truth is unavailable, prioritize impact-grounded metrics: hotspot precision/recall, settlement and road hit rates, district rank correlation, onset timing error, and false-alarm behavior. If partial flood footprints exist, report IoU, F1, and CSI as supplementary map metrics.
+
+\section{Minimum Viable Regional Product}
+
+The minimum serious product is not a universal simulator. It is a regional spring-flood context engine with nested local consequence windows and replay-tested outputs.
+
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.34\textwidth}Y@{}}
+\toprule
+Required V1 component & Scope discipline \\
+\midrule
+Regional domain and hydro-context backbone & Moderate resolution is acceptable if connectivity is preserved \\
+Conditioned DEM and hydro-enforced terrain & Must preserve true depressions and key barriers \\
+Depression/spill graph & Core physical logic; non-negotiable \\
+Simplified snowmelt-aware forcing & Seasonal storage-release with scenario controls \\
+Nested local windows (3--5) & Focus on settlements, roads, and recurrent hotspots \\
+Historical replay workflow & Event reconstruction and impact scoring \\
+Decision outputs & Hotspot maps, exposure ranks, district summaries \\
+\bottomrule
+\end{tabularx}
+
+Anything beyond this baseline---full-region high-detail simulation, real-time operational forecasting, full data assimilation, or advanced surrogate learning---belongs to later phases.
+
+\section{Team Realism}
+
+\textbf{Computer science track.} Geospatial ingestion, graph construction, window orchestration, simulation workflow engineering, output generation, and reproducible replay tooling.
+
+\textbf{Applied mathematics track.} Storage-spill formalization, reduced dynamics, threshold calibration, stability checks, objective design for replay scoring, and sensitivity analysis.
+
+\textbf{Policy and strategy track.} Stakeholder framing, validation case selection, impact taxonomy, communication discipline, and scope control for government-facing artifacts.
+
+This partition is practical and non-romantic. The strongest student outcome comes from disciplined ownership boundaries with shared validation standards.
+
+\section{Risk Register}
+
+\begin{tabularx}{\textwidth}{@{}p{0.22\textwidth}Y Y@{}}
+\toprule
+\textbf{Risk} & \textbf{Why it is dangerous} & \textbf{Primary mitigation} \\
+\midrule
+DEM truth and conditioning errors
+& Minor elevation artifacts can invert storage and spill behavior in flat terrain.
+& Multi-stage conditioning audits, preservation checks for true depressions, and visual review of critical corridors. \\
+
+False depressions and digital dams
+& Artifacts can produce convincing but incorrect inundation patterns.
+& Separate true storage from raster artifacts and anthropogenic barriers; enforce conservative correction rules. \\
+
+Routing instability under weak gradients
+& Small numerical inconsistencies can trigger large topology shifts.
+& Use storage-first threshold logic and bounded reduced dynamics. \\
+
+Incorrect local boundary assumptions
+& Isolated windows can produce confident but physically invalid forecasts.
+& Require explicit regional-to-local boundary coupling for every priority window. \\
+
+Snowmelt forcing uncertainty
+& Event timing and magnitude can shift if thaw assumptions are wrong.
+& Use scenario ensembles and report uncertainty bounds in replay outputs. \\
+
+Overclaiming novelty
+& Inflated claims reduce institutional trust and technical credibility.
+& Anchor novelty in architecture and validation workflow, not exotic computation labels. \\
+
+Scope overbuild
+& Team bandwidth gets consumed before a testable system exists.
+& Freeze V1 around backbone, forcing pivot, nested windows, replay, and impact outputs. \\
+
+AI-language overdependence
+& Stakeholders may infer black-box risk without evidence of reliability.
+& Lead with hydrology, replay performance, and interpretable exposure products. \\
+\bottomrule
+\end{tabularx}
+
+\section{Final Recommendation}
+
+\textbf{One-sentence project definition.} AKMOLA-DT-V1 should be built as a regional snowmelt-aware flood intelligence system that couples Akmola-scale hydrologic context with boundary-aware nested micro-relief simulation and validates performance through historical event replay and impact metrics.
+
+\textbf{Best architecture path.} Build the regional backbone first, enforce terrain realism, implement depression-spill logic, add simplified snowmelt forcing, connect nested windows, and validate against historical events before considering advanced surrogates.
+
+\textbf{Biggest mistake to avoid.} Do not build a visually impressive local AI simulator and present it as a regional flood system. Credibility will come from forcing realism, boundary discipline, and replay-tested impact outputs.
+
+\end{document}
