@@ -102,8 +102,8 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
 ## Treaty of Saint-Germain (1919)
 - **Date:** 1919
 - **Parties involved:** Austria, Allied powers
-- **Main terms:** Recognised the break-up of the Habsburg Empire.
-- **Territorial terms:** Austria lost major territories to successor states.
+- **Main terms:** Recognised the break-up of the Habsburg Empire and reduced Austria to a much smaller state.
+- **Territorial terms:** Bohemia and Moravia went to Czechoslovakia; Dalmatia, Bosnia and Herzegovina went to Yugoslavia; Bukovina to Romania; Galicia to Poland; Trentino, Istria, Trieste, and parts of South Tyrol to Italy.
 - **Military terms:** Austria's armed forces limited.
 - **Economic / reparations / political terms:** Austria reduced to a much smaller state.
 - **Who benefited:** Successor states.
@@ -114,10 +114,10 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
 ## Treaty of Neuilly (1919)
 - **Date:** 1919
 - **Parties involved:** Bulgaria, Allied powers
-- **Main terms:** Territorial losses, reparations, military limits.
-- **Territorial terms:** Bulgaria lost land to neighbours.
-- **Military terms:** Army capped.
-- **Economic / reparations / political terms:** Reparations imposed.
+- **Main terms:** Territorial losses, reparations, and military limits were imposed on Bulgaria.
+- **Territorial terms:** Bulgaria lost territory to Greece, Yugoslavia, and Romania.
+- **Military terms:** Army capped at 20,000.
+- **Economic / reparations / political terms:** Reparations of over $400 million were imposed in the chapter account.
 - **Who benefited:** Bulgaria's neighbours.
 - **Who was dissatisfied:** Bulgaria.
 - **Why it mattered later:** One more example of dissatisfaction beyond Germany.
@@ -126,8 +126,8 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
 ## Treaty of Trianon (1920)
 - **Date:** 1920
 - **Parties involved:** Hungary, Allied powers
-- **Main terms:** Massive territorial losses for Hungary.
-- **Territorial terms:** Lands transferred to surrounding states.
+- **Main terms:** Massive territorial losses formalised the break-up of historic Hungary.
+- **Territorial terms:** Slovakia and Ruthenia went to Czechoslovakia; Transylvania to Romania; Croatia and Slovenia to Yugoslavia.
 - **Military terms:** Hungarian military restricted.
 - **Economic / reparations / political terms:** Left many ethnic Hungarians outside Hungary.
 - **Who benefited:** Successor states such as Romania and Czechoslovakia.
@@ -138,7 +138,7 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
 ## Treaty of Sevres (1920)
 - **Date:** 1920
 - **Parties involved:** Ottoman Empire, Allied powers
-- **Main terms:** Severe territorial reduction; mandates; straits arrangements.
+- **Main terms:** Severe territorial reduction, mandates, and permanent opening of the Dardanelles.
 - **Territorial terms:** Large losses in the Arab lands and elsewhere.
 - **Military terms:** Ottoman weakness built into the settlement.
 - **Economic / reparations / political terms:** Deeply unpopular in Turkey.

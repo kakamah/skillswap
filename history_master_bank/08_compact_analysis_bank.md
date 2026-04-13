@@ -7,7 +7,7 @@ Use these as compact analytical lines grounded in the book's content. They are n
 
 ## Imperialism and power
 - New imperialism mattered less as a simple land-grab than as a sign that industrial power now demanded global reach.
-- The deeper problem was not only competition for colonies but competition for status.
+- The deeper problem was not only competition for colonies but competition for status, naval reach, and recognition as a great power.
 - Empire did not just supply raw materials; it supplied prestige and strategic routes.
 - The real importance of Egypt was that route security could drive annexation as strongly as trade.
 - Berlin solved the problem of European rules in Africa, not the problem of African consent.
@@ -41,7 +41,7 @@ Use these as compact analytical lines grounded in the book's content. They are n
 - Abyssinia did not just expose League weakness; it exposed British and French unwillingness to choose principle over expediency.
 - The real importance of the Hoare-Laval episode was the destruction of trust in sanctions politics.
 - Rhineland changed less territory than Munich, but it changed the strategic balance more decisively.
-- Appeasement is best understood as a policy of buying time under pressure, not as simple blindness.
+- The book presents appeasement as a mix of time-buying, military weakness, anti-war feeling, and repeated misjudgment of Hitler, not as simple passivity.
 - Appeasement mattered less because it was morally weak than because it repeatedly worsened the next strategic position.
 - Spain shows how non-intervention can become one-sided in practice.
 - Munich solved the immediate crisis but created a larger strategic one.
@@ -57,16 +57,19 @@ Use these as compact analytical lines grounded in the book's content. They are n
 - Chiang's greatest strength was military-political control; his greatest weakness was that this did not equal deep legitimacy.
 - The Shanghai Purge mattered because it forced the CCP to survive differently rather than disappear.
 - The Long March was a defeat in military terms but a victory in organisational survival and later symbolism.
+- Japan's anger at Paris was not only about Shantung; rejection of racial equality turned status grievance into domestic political resentment.
+- Washington stabilised the Pacific temporarily, but in Japan it also fed the claim that civilian politicians had accepted second-rank status.
+- Japanese democracy weakened because party corruption, zaibatsu influence, exclusion abroad, and economic crisis made military solutions look more credible.
 - Japanese aggression in Manchuria did not just damage China; it damaged Japanese parliamentary government.
 - The deeper problem in East Asia was the link between Japanese resource insecurity and military autonomy.
 - Xi'an matters because it shows anti-Japanese nationalism could redirect domestic power struggles.
 - The anti-Japanese war helped the CCP because prolonged conflict exposed KMT limits.
-- Pearl Harbor is best understood as a strategic gamble born from sanctions pressure and miscalculation, not as an isolated act of irrationality.
+- The book treats Pearl Harbor mainly as a strategic gamble born from sanctions pressure and miscalculation, while also flagging historiographical debate over foreknowledge.
 - The war in China did not merely parallel the European crisis; it interacted with and widened it.
 
 ## Comparative lines
 - Japan and Germany both revised settlements, but Japan first exposed collective security's weakness.
 - The League failed in both Manchuria and Abyssinia, but the second failure was even more destructive because Britain and France were directly compromised.
 - Stresemann and Hitler both sought revision of Versailles, but by radically different methods and ends.
-- Wilsonian principle and power politics coexisted in 1919; the problem is that power politics usually won where they collided.
+- Wilsonian principle and power politics coexisted in 1919, but on issues such as reparations, mandates, and Shantung, strategic interest repeatedly limited principle.
 - The 1920s and 1930s are best understood together: the later collapse grew out of unresolved weaknesses in the earlier "recovery."

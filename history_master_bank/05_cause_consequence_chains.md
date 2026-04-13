@@ -32,14 +32,15 @@ Compact causal chains prioritising chronology, mechanism, and analytical usefuln
 - Soviet support + anti-warlord common interest -> First United Front -> Northern Expedition success -> Nationalist expansion -> Chiang confident enough to purge communists.
 - Chiang's anti-communism -> Shanghai Purge / White Terror -> CCP rural retreat -> Jiangxi base -> Long March -> Mao's stronger leadership.
 - KMT inability to destroy CCP quickly -> prolonged civil conflict -> both sides weakened before full Japanese invasion -> anti-Japanese strategy became more contested.
-- Japanese army autonomy + resource / prestige anxieties -> Mukden Incident -> seizure of Manchuria -> civilian government discredited -> military dictatorship strengthened in Japan.
+- rejection of racial equality at Paris + unpopular Washington limits + Japanese Exclusion Act + party corruption / zaibatsu influence -> anti-western resentment + distrust of parliamentary politics -> secret-society violence + May 15 Incident -> party government weakened -> army and navy gained greater political leverage.
+- Japanese army autonomy + resource / prestige anxieties + depression-era economic crisis -> Mukden Incident -> seizure of Manchuria -> civilian government discredited -> military dictatorship strengthened in Japan.
 - League inability to reverse Manchuria -> Japanese confidence rises -> further aggression in China -> wider East Asian war.
 - Chiang's priority on communists over immediate war with Japan -> anger among anti-Japanese officers -> Xi'an Incident -> Second United Front.
 - Full-scale war with Japan -> KMT retreat inland + heavy civilian suffering -> KMT reputation damaged by corruption and coercion -> CCP expands political support in the countryside.
 - US oil embargo -> Japan sees strategic clock running down -> gamble on pre-emptive strike -> Pearl Harbor -> US entry into world war.
 
 ## 1930s collapse
-- Wall Street Crash -> global depression -> unemployment / social unrest -> extremist politics strengthen -> dictatorships more aggressive.
+- Wall Street Crash -> US loans and trade contract -> German and wider world depression -> unemployment + political polarisation -> extremist politics strengthen, especially in Germany and Japan -> dictatorships become more aggressive.
 - Depression + fear of war costs -> Britain and France more cautious -> less willingness to enforce settlements -> aggressors perceive weakness -> further treaty-breaking.
 - Manchuria success -> League discredited -> Disarmament Conference atmosphere worsens -> Hitler leaves League -> collective security weakened further.
 - Hitler's early successes without forceful response -> Saar + rearmament + Rhineland -> prestige rises -> domestic support rises -> bolder expansion.

@@ -47,7 +47,7 @@ Each card separates background from significance. Analytical lines are phrased f
 - **What happened:** Rival expeditions faced each other, but neither side chose war.
 - **Immediate consequences:** Diplomatic settlement.
 - **Wider significance:** Showed that imperial rivalry increased tension but did not automatically produce general war.
-- **Which arguments this event helps prove:** International relations before 1914 were unstable but still negotiable.
+- **Which arguments this event helps prove:** Colonial rivalry could still be contained by compromise, and Anglo-French hostility was not fixed before the Entente.
 - **Related actors / treaties / later developments:** Britain, France, Entente Cordiale.
 
 ## Spanish-American War (1898)
@@ -101,7 +101,7 @@ Each card separates background from significance. Analytical lines are phrased f
 - **What happened:** Germany sent the Panther to Agadir.
 - **Immediate consequences:** Germany backed down after confrontation.
 - **Wider significance:** Intensified British suspicion of Germany and fed pre-war bloc tension.
-- **Which arguments this event helps prove:** Repeated diplomatic tests were making the system more brittle.
+- **Which arguments this event helps prove:** German prestige diplomacy was hardening Anglo-French alignment and making later crises harder to contain.
 - **Related actors / treaties / later developments:** Germany, France, Britain, pre-1914 tensions.
 
 ## USA enters the First World War (1917)
@@ -122,6 +122,15 @@ Each card separates background from significance. Analytical lines are phrased f
 - **Which arguments this event helps prove:** Peace-making after total war was a compromise, not a neat application of principle.
 - **Related actors / treaties / later developments:** Versailles, League, successor states, Turkey, reparations.
 
+## Rejection of Japan's racial equality proposal (1919)
+- **Date:** 1919
+- **Background / causes:** Japan wanted recognition as a genuine equal great power at Paris and sought protection against western racial hierarchy.
+- **What happened:** Japan proposed a racial equality clause for the League Covenant, but Wilson insisted such a change needed unanimity and the proposal failed.
+- **Immediate consequences:** Japanese delegates and public opinion were angered; resentment toward western double standards deepened.
+- **Wider significance:** The issue turned status grievance into a political force inside Japan and weakened support for pro-western cooperation.
+- **Which arguments this event helps prove:** Japanese disappointment after 1919 was about equality and status, not just about territory in China.
+- **Related actors / treaties / later developments:** Japan, Wilson, League Covenant, Shantung, Washington Conference.
+
 ## Ruhr occupation and hyperinflation (1923)
 - **Date:** 1923
 - **Background / causes:** German reparations default and French security fears.
@@ -133,7 +142,7 @@ Each card separates background from significance. Analytical lines are phrased f
 
 ## Corfu Crisis (1923)
 - **Date:** 1923
-- **Background / causes:** Murder of Italian officials on a boundary mission gave Mussolini a pretext to use force.
+- **Background / causes:** The killing of Italian personnel on a boundary mission gave Mussolini a pretext to use force; the extracted text is inconsistent on the exact casualty wording.
 - **What happened:** Italy bombarded and occupied Corfu, then resisted League authority.
 - **Immediate consequences:** Greece compensated Italy.
 - **Wider significance:** Revealed that the League struggled against a major power willing to ignore it.
@@ -194,6 +203,15 @@ Each card separates background from significance. Analytical lines are phrased f
 - **Which arguments this event helps prove:** Aggression became more likely once the League showed it could not enforce its principles.
 - **Related actors / treaties / later developments:** Japan, China, League, Lytton Report, Tanggu Truce.
 
+## May 15 Incident (1932)
+- **Date:** May 1932
+- **Background / causes:** Ultra-nationalist secret-society politics, anger at party corruption, and military resentment against civilian restraint after Manchuria.
+- **What happened:** Prime Minister Inukai Tsuyoshi was assassinated by young naval officers.
+- **Immediate consequences:** Civilian party government lost more authority; the killers received lenient treatment that further damaged confidence in parliamentary rule.
+- **Wider significance:** Marked a decisive stage in Japan's drift from parliamentary politics toward military dominance.
+- **Which arguments this event helps prove:** Japanese military dictatorship grew out of domestic political weakness as well as external expansion.
+- **Related actors / treaties / later developments:** Inukai Tsuyoshi, Japanese navy, Sakurakai, Manchuria, Hirohito.
+
 ## Long March (1934-35)
 - **Date:** 1934-35
 - **Background / causes:** KMT encirclement campaigns threatened to destroy the CCP base in Jiangxi.
@@ -208,7 +226,7 @@ Each card separates background from significance. Analytical lines are phrased f
 - **Background / causes:** Mussolini wanted prestige, expansion, and a success comparable to Hitler's diplomatic gains.
 - **What happened:** Italy invaded Abyssinia; the League imposed limited sanctions; the Hoare-Laval scheme leaked.
 - **Immediate consequences:** Italy conquered Abyssinia; sanctions failed; League prestige collapsed.
-- **Wider significance:** Often treated as the point at which collective security died as a serious deterrent.
+- **Wider significance:** It showed publicly that sanctions and Covenant language would not stop a major aggressor when Britain and France refused full enforcement.
 - **Which arguments this event helps prove:** Great-power self-interest overrode the Covenant.
 - **Related actors / treaties / later developments:** Italy, Britain, France, League, Rome-Berlin Axis.
 
@@ -225,7 +243,7 @@ Each card separates background from significance. Analytical lines are phrased f
 - **Date:** December 1936
 - **Background / causes:** Frustration with Chiang's priority of fighting communists rather than Japan.
 - **What happened:** Chiang was detained by his own side and pressured into cooperation against Japan.
-- **Immediate consequences:** Second United Front formed.
+- **Immediate consequences:** By 24 December, Chiang agreed to cooperate against Japan in what became known as the Second United Front.
 - **Wider significance:** Reordered Chinese priorities on the eve of wider war with Japan.
 - **Which arguments this event helps prove:** Chinese politics in the 1930s cannot be reduced to a simple KMT-versus-Japan story.
 - **Related actors / treaties / later developments:** Chiang, Zhang Xueliang, CCP, Second United Front.

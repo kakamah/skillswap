@@ -128,18 +128,22 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
   2. Yuan's dictatorship and death, 1913-16
   3. Warlord era, 1916-28
   4. May Fourth Movement, 1919
-  5. CCP founded, 1921
-  6. First United Front, 1923
-  7. Northern Expedition, 1926-28
-  8. Shanghai Purge / White Terror, 1927
-  9. Nanking Decade, 1928-37
-  10. Mukden / Manchurian Crisis, 1931
-  11. Long March, 1934-35
-  12. Xi'an Incident, 1936
-  13. Full-scale Sino-Japanese War, 1937
-  14. Pearl Harbor, 1941
-  15. Japanese defeat and withdrawal, 1945
-- **Must-know actors:** Sun Yat-sen, Yuan Shih-kai, Chiang Kai-shek, Wang Jingwei, Mao Zedong, Zhou Enlai, Zhang Xueliang, KMT, CCP, Japanese army, Hirohito, Tojo, USA, Comintern.
+  5. Rejection of Japan's racial equality proposal at Paris, 1919
+  6. CCP founded, 1921
+  7. Washington Conference, 1921-22
+  8. First United Front, 1923
+  9. Japanese Exclusion Act, 1924
+  10. Northern Expedition, 1926-28
+  11. Shanghai Purge / White Terror, 1927
+  12. Nanking Decade, 1928-37
+  13. Mukden / Manchurian Crisis, 1931
+  14. May 15 Incident, 1932
+  15. Long March, 1934-35
+  16. Xi'an Incident, 1936
+  17. Full-scale Sino-Japanese War, 1937
+  18. Pearl Harbor, 1941
+  19. Japanese defeat and withdrawal, 1945
+- **Must-know actors:** Sun Yat-sen, Yuan Shih-kai, Chiang Kai-shek, Wang Jingwei, Mao Zedong, Zhou Enlai, Zhang Xueliang, KMT, CCP, Saionji Kinmochi, Shidehara, Inukai Tsuyoshi, Hirohito, Tojo, Japanese army, USA, Comintern.
 - **Must-know treaties / agreements:** Twenty-One Demands, First United Front, Tanggu Truce, Second United Front, Washington settlement, Anti-Comintern Pact, US embargo measures.
 - **5-10 essential facts:**
   - The republic began weak because military force, finance, and regional power still mattered more than constitutional form.
@@ -148,12 +152,17 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
   - Chiang unified China only partially; warlords, factionalism, and Japanese pressure remained.
   - The CCP survived 1927 because it rebuilt in rural areas rather than disappearing.
   - The Long March mattered politically more than militarily because it preserved the CCP and elevated Mao.
+  - Japanese disappointment at Paris was about status as well as territory: rejection of racial equality and the Shantung reversal both fed resentment.
+  - Washington cooperation calmed tension temporarily, but many Japanese nationalists saw the naval limits as second-rank treatment.
+  - Japanese democracy weakened because party corruption, zaibatsu influence, the 1924 Exclusion Act, political violence, and depression discredited civilian government.
   - Japan's seizure of Manchuria exposed civilian weakness and accelerated military dominance.
   - War against Japan damaged the KMT's reputation and gave the CCP space to grow.
 - **3-5 factual confusions students might make:**
   - Treating 1912 as the end of China's instability rather than the start of a new phase.
   - Assuming Northern Expedition created a fully centralised state.
+  - Confusing Japanese anger at Paris with simple territorial disappointment; the racial equality issue mattered too.
+  - Treating Washington as either total Japanese surrender or total success; the book presents a debate over whether Japan was forced or willing to compromise.
   - Treating CCP growth as purely military success against Japan; the book stresses political positioning and KMT weakness too.
   - Confusing Xi'an Incident with the outbreak of full-scale war in 1937.
   - Assuming Pearl Harbor destroyed total US naval capacity; the chapter stresses what survived.
-- **Why this topic matters analytically:** It links domestic weakness, nationalism, revolution, and foreign aggression more tightly than any other part of the book and explains why East Asia became central to the wider war crisis.
+- **Why this topic matters analytically:** It links domestic weakness, nationalism, revolution, foreign aggression, and the collapse of Japanese parliamentary government, showing why East Asia became central to the wider war crisis.

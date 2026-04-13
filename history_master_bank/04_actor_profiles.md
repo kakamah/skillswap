@@ -10,7 +10,7 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
 - **Actions:** Egypt 1882; Boer War; Entente Cordiale; Anglo-Japanese Alliance; role in Versailles; Dawes / Locarno diplomacy; appeasement; guarantee to Poland.
 - **Key events linked:** Egypt, Boer War, Morocco, Versailles, Locarno, Abyssinia, Rhineland, Munich, Poland.
 - **How position changed over time:** From imperial confidence to exposed overextension after Boer War; then a cautious manager of interwar order; then reluctant resister by 1939.
-- **Why this actor matters historically:** Britain appears throughout the book as the clearest example of a great power trying to defend a world role with limited means.
+- **Why this actor matters historically:** British policy links the empire story before 1914 to the appeasement story before 1939; its choices repeatedly shaped whether crises were resisted, negotiated, or postponed.
 
 ## France
 - **Aims:** Recover prestige after 1870, contain Germany, secure borders, preserve post-1919 gains.
@@ -69,17 +69,17 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
 ## Japan
 - **Aims:** Avoid subordination, gain security and status, secure resources, dominate East Asia.
 - **Fears:** Foreign encirclement, resource vulnerability, exclusion by western powers.
-- **Constraints:** Resource dependence, tensions between civilian and military authority, strategic exposure.
-- **Actions:** Meiji modernisation, victories over China and Russia, alliance with Britain, Twenty-One Demands, Washington participation, Manchuria, China war, Pearl Harbor.
-- **Key events linked:** Shimonoseki, Triple Intervention, Portsmouth, Twenty-One Demands, Mukden, 1937 war, Pearl Harbor.
+- **Constraints:** Resource dependence, tensions between civilian and military authority, strategic exposure, party instability, and the emperor's ambiguous constitutional position.
+- **Actions:** Meiji modernisation; victories over China and Russia; alliance with Britain; Twenty-One Demands; pursuit of status at Paris in 1919; acceptance of Washington naval limits; drift away from party politics through ultra-nationalism, secret societies, and the May 15 Incident; Manchuria; China war; Pearl Harbor.
+- **Key events linked:** Shimonoseki, Triple Intervention, Portsmouth, Twenty-One Demands, racial equality clause dispute, Washington Conference, Japanese Exclusion Act, May 15 Incident, Mukden, 1937 war, Pearl Harbor.
 - **How position changed over time:** From rising model moderniser to aggressive military dictatorship.
-- **Why this actor matters historically:** Japan is the clearest non-European case of rapid modernisation translating into imperial power and then destabilising war.
+- **Why this actor matters historically:** Japan is the clearest non-European case of rapid modernisation translating into imperial power, but the chapter also shows how status resentment, civilian weakness, and military autonomy turned that power into dictatorship and expansion.
 
 ## Russia / USSR
 - **Aims:** Under the tsars, expand influence; under the USSR, survive isolation and shape security on better terms.
 - **Fears:** Encirclement, capitalist hostility, German power, Japanese threat.
 - **Constraints:** 1905 defeat, revolution, civil war, non-membership / partial exclusion from parts of the interwar system.
-- **Actions:** Triple Intervention role, Russo-Japanese War, Brest-Litovsk exit, Rapallo, Treaty of Berlin, League entry, Spain involvement, attempted anti-Hitler diplomacy, Nazi-Soviet Pact.
+- **Actions:** Triple Intervention role, Russo-Japanese War, Brest-Litovsk exit, Rapallo, Treaty of Berlin, League entry in 1934, Spain involvement, attempted anti-Hitler diplomacy, Nazi-Soviet Pact.
 - **Key events linked:** 1905 defeat, Brest-Litovsk, Rapallo, Franco-Soviet diplomacy, Nazi-Soviet Pact.
 - **How position changed over time:** From imperial rival in East Asia to revolutionary outsider to pragmatic power-balancer.
 - **Why this actor matters historically:** USSR policy exposes how ideology and strategy often collided but did not erase power politics.
@@ -136,7 +136,7 @@ Source basis: uploaded markdown extraction of Cambridge International AS Level H
 - **Actions:** Led revolutionary movement, set up southern government, entered First United Front.
 - **Key events linked:** 1911 Revolution, republican founding, United Front, Whampoa.
 - **How position changed over time:** Symbolic founder more than secure ruler; influence outlasted his practical power.
-- **Why this actor matters historically:** The ideological origin point for modern Chinese nationalism in the chapter.
+- **Why this actor matters historically:** Sun matters because the KMT, the republic, and later rival Chinese movements all claimed his nationalist legacy even though he never secured stable national power.
 
 ## Yuan Shih-kai
 - **Aims:** Personal control and central authority.

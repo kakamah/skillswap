@@ -23,11 +23,13 @@ Brutal revision sheet: key dates, key events, key treaties, key actors, one-line
 - **1917:** USA enters WWI - decisive power shift.
 - **1918:** Fourteen Points - benchmark for judging peace.
 - **1919:** Versailles - Germany punished, grievances embedded.
+- **1919:** Japan's racial equality proposal rejected - status resentment deepens.
 - **1919:** May Fourth - nationalism deepens in China.
 - **1921-22:** Washington Conference - temporary Pacific stabilisation.
 - **1922:** Rapallo - Germany and USSR bypass Paris system.
 - **1923:** Ruhr / hyperinflation - reparations crisis peaks.
 - **1923:** Lausanne - Sevres revised.
+- **1924:** Japanese Exclusion Act - anti-western resentment rises in Japan.
 - **1924:** Dawes Plan - crisis eased via US money.
 - **1925:** Locarno - western détente peak.
 - **1927:** Shanghai Purge - KMT and CCP split violently.
@@ -35,14 +37,15 @@ Brutal revision sheet: key dates, key events, key treaties, key actors, one-line
 - **1929:** Young Plan - reparations reduced.
 - **1929:** Wall Street Crash - interwar stability breaks.
 - **1931:** Manchuria - first decisive League failure.
+- **1932:** May 15 Incident - Japanese party government badly weakened.
 - **1933:** Hitler chancellor - revisionism radicalised.
 - **1934-35:** Long March - CCP survives, Mao rises.
 - **1935-36:** Abyssinia - collective security discredited.
 - **1936:** Rhineland - Hitler's low-risk, high-value success.
-- **1936:** Xi'an Incident - anti-Japanese united front forced.
+- **Dec 1936:** Xi'an Incident / Second United Front - Chiang detained, then anti-Japanese cooperation agreed.
 - **1936-39:** Spanish Civil War - ideological proxy conflict.
 - **1937:** Full Sino-Japanese War - East Asia in major war.
-- **1938:** Anschluss - Germany expands.
+- **1938:** Anschluss - Austria annexed; Czechoslovakia more exposed.
 - **1938:** Munich - appeasement at its peak.
 - **1939:** Prague occupied - Hitler exposed as wider aggressor.
 - **1939:** Nazi-Soviet Pact - Poland isolated.
@@ -78,7 +81,7 @@ Brutal revision sheet: key dates, key events, key treaties, key actors, one-line
 - **France:** Security seeker against Germany.
 - **Germany:** From Bismarckian caution to Wilhelmine challenge to Nazi aggression.
 - **USA:** Selective global power; crucial even when "isolationist."
-- **Japan:** Modernising state turned expansionist military power.
+- **Japan:** From pro-western cooperation to military-dominated expansionism under status grievance and resource pressure.
 - **USSR:** Outsider power balancing survival, ideology, and strategy.
 - **League of Nations:** Useful in small disputes, weak in major crises.
 - **Wilson:** Peace by principle and League design.
@@ -97,8 +100,8 @@ Brutal revision sheet: key dates, key events, key treaties, key actors, one-line
 - Colonial crises mattered because they hardened alignments before 1914.
 - Japan and the USA mattered because global power was no longer purely European.
 - Versailles mattered because it created order and grievance at the same time.
-- The League mattered because its limits revealed the real strength of international cooperation.
-- The mid-1920s mattered because they looked stable enough to mislead governments.
+- The League mattered because it could settle smaller disputes but failed when major powers resisted.
+- The mid-1920s mattered because Dawes and Locarno created apparent stability without solving reparations or eastern insecurity.
 - The Depression mattered because it weakened defenders of peace and strengthened its challengers.
 - Manchuria mattered because aggression succeeded.
 - Abyssinia mattered because sanctions failed publicly.
